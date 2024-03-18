@@ -3,9 +3,8 @@ package racingcar.domain;
 import java.util.*;
 
 public class Winner {
-    private static List<Car> winners;
     public static List<Car> getWinners(List<Car> cars){
-        //List<Car> winners = new ArrayList<>();
+        List<Car> winners = new ArrayList<>();
         winners.add(cars.get(0));
 
         for(int i = 1; i < cars.size(); i++){
