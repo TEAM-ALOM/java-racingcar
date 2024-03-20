@@ -20,7 +20,7 @@ public class RacingGame {
         return racingCars;
     }
 
-    public void moveCar() {
+    public static void moveCar() {
         racingCars.forEach(car -> car.move(RandomNumber.generateRandomIntIntRange()));
     }
 
@@ -34,18 +34,5 @@ public class RacingGame {
         }
 
         return racingCars;
-    }
-
-    public void startRace(int playRound, RacingGame racingGame) {
-        try {
-            OutputView.printRoundResult(racingGame);
-            for (int i = 0; i < playRound; i++) {
-                moveCar();
-                OutputView.printRoundResult(racingGame);
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            startRace(playRound, racingGame);
-        }
     }
 }

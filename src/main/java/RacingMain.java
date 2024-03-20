@@ -1,3 +1,4 @@
+import controller.RacingStart;
 import domain.Car;
 import domain.RacingGame;
 import domain.Winner;
@@ -19,7 +20,7 @@ public class RacingMain {
         final int CNT = InputView.getTryCount();
 
         RacingGame racingGame = new RacingGame(racingCars);
-        racingGame.startRace(CNT, racingGame);
+        RacingStart.startRace(CNT, racingGame);
 
         Winner winner = new Winner();
         final List<String> winners = winner.findWinners(racingCars);
