@@ -16,6 +16,7 @@ public class RacingController {
         Output output = new Output();
 
         List<String> CarList = input.readCarNames(); //차 이름 입력
+
         int AttemptAmount = input.readAttemptAmount(); //실행 횟수 입력
         validateAttemptAmount(AttemptAmount);
 
