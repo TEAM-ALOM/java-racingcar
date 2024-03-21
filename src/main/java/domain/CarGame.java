@@ -7,6 +7,17 @@ import java.util.List;
 
 public class CarGame {
     private List<Car> cars = new ArrayList<>();
+    public CarGame(String []carNames){
+        for (String carName : carNames) {
+            Car newCar = new Car(carName);
+            cars.add(newCar);
+        }
+
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 
     public void excuteRacingGame(){
         for (Car car : cars) {
@@ -25,7 +36,8 @@ public class CarGame {
     }
     public Car returnWinningCarProgrss(){
         cars.sort(Comparator.comparingInt(Car::getProgress));
-        return cars.get(0);
+        int maxIndex = cars.size() - 1;
+        return cars.get(maxIndex);
     }
 
 

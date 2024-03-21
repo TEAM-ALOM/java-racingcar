@@ -15,6 +15,5 @@ public class InputView {
         System.out.println(INPUT_GAME_TRY_NUMBER);
         int tryNumber = scanner.nextInt();
         return tryNumber;
-
     }
 }
