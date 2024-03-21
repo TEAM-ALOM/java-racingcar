@@ -1,12 +1,15 @@
 package Domain;
 
+import util.InputValidate;
+
 public class Car {
 
     private String name;
     private int position = 0;
 
     public Car(final String name,final int position){
-        validateName(name);
+        InputValidate inputValidate = new InputValidate();
+        inputValidate.validateName(name);
         this.name = name;
         this.position = position;
     }
@@ -35,14 +38,7 @@ public class Car {
         return this.position == position;
     }
 
-    private void validateName(String name){
-        if(name.isEmpty()){ //이름 존재여부 검증
-            throw new IllegalArgumentException("이름이 존재하지 않습니다");
-        }
-        if(name.length() > 5){ //이름 길이 충족여부 검증
-            throw new IllegalArgumentException("이름이 6글자 이상입니다");
-        }
-    }
+
 
 
 

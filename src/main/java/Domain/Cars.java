@@ -1,11 +1,10 @@
 package Domain;
 
+import util.InputValidate;
 import View.Output;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -17,7 +16,8 @@ public class Cars {
     }
 
     private List<Car> setCarList(List<String> CarNames){ //List<String>을 List<Car> 로 전환
-        validateNameDuplication(CarNames);
+        InputValidate inputValidate = new InputValidate();
+        inputValidate.validateNameDuplication(CarNames);
         List<Car> myCarList = new ArrayList<>();
         for(String CarName:CarNames){
             myCarList.add(new Car(CarName,0));
@@ -83,11 +83,7 @@ public class Cars {
         return Winners;
     }
 
-    private void validateNameDuplication(List<String> CarList){ //이름 중복 여부 검증
-        if(CarList.size() != CarList.stream().distinct().count()){
-            throw new IllegalArgumentException("중복 이름이 존재합니다");
-        }
-    }
+
 
 
 
