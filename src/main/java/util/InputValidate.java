@@ -6,9 +6,9 @@ public class InputValidate {
     public InputValidate(){}
 
     private static final String INVALID_ATTEMPT_AMOUNT_MESSAGE = "시도 횟수는 1이상이어야 합니다";
-    private static final String INVALID_NAME_LENGTH = "이름이 6글자 이상입니다";
-    private static final String INVALID_NAME_PRESENT = "이름이 존재하지 않습니다";
-    private static final String INVALID_NAME_DUPLICATION = "중복 이름이 존재합니다";
+    private static final String INVALID_NAME_LENGTH_MESSAGE = "이름이 6글자 이상입니다";
+    private static final String INVALID_NAME_PRESENT_MESSAGE = "이름이 존재하지 않습니다";
+    private static final String INVALID_NAME_DUPLICATION_MESSAGE = "중복 이름이 존재합니다";
     private static final int VALID_ATTEMPT_AMOUNT_LOWER_BOUND = 1;
     private static final int VALID_NAME_LENGTH_UPPER_BOUND = 5;
 
@@ -20,15 +20,15 @@ public class InputValidate {
     }
     public void validateName(String name){
         if(name.isEmpty()){ //이름 존재여부 검증
-            throw new IllegalArgumentException(INVALID_NAME_PRESENT);
+            throw new IllegalArgumentException(INVALID_NAME_PRESENT_MESSAGE);
         }
         if(name.length() > VALID_NAME_LENGTH_UPPER_BOUND){ //이름 길이 충족여부 검증
-            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH_MESSAGE);
         }
     }
     public void validateNameDuplication(List<String> CarList){ //이름 중복 여부 검증
         if(CarList.size() != CarList.stream().distinct().count()){
-            throw new IllegalArgumentException(INVALID_NAME_DUPLICATION);
+            throw new IllegalArgumentException(INVALID_NAME_DUPLICATION_MESSAGE);
         }
     }
 }
