@@ -21,11 +21,8 @@ public class Output {
             int CurrentCarPosition = car.getPosition();
             System.out.print(car.getName()+" : ");
             outPosition(CurrentCarPosition);
-            outEnter();
+            System.out.println("");
         }
-    }
-    public void outEnter(){ //줄바꿈
-        System.out.println("");
     }
 
     public void outWinner(Cars cars){ //우승자 출력

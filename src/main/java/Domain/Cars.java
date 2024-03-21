@@ -45,7 +45,7 @@ public class Cars {
         for(int i=0;i<AttemptAmount;i++){
             playOnce();
             output.outCurrentSituation(CarList);
-            output.outEnter();
+            System.out.println("");
         }
 
     }
