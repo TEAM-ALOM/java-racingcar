@@ -16,7 +16,8 @@ public class Cars {
         CarList = setCarList(CarNames);
     }
 
-    private List<Car> setCarList(List<String> CarNames){
+    private List<Car> setCarList(List<String> CarNames){ //List<String>을 List<Car> 로 전환
+        validateNameDuplication(CarNames);
         List<Car> myCarList = new ArrayList<>();
         for(String CarName:CarNames){
             myCarList.add(new Car(CarName,0));
@@ -29,14 +30,14 @@ public class Cars {
         return CarList;
     }
 
-    private void playOnce(){
+    private void playOnce(){ //게임 한번 실행
         RandomNumber randomNumber = new RandomNumber();
         for(Car car:CarList){
             car.move(randomNumber.getRandomNumber());
         }
     }
 
-    public void playGame(int AttemptAmount){
+    public void playGame(int AttemptAmount){ //AttemptAmount만큼 게임 실햄
         Output output = new Output();
         System.out.println("실행 결과");
         for(int i=0;i<AttemptAmount;i++){
@@ -46,7 +47,7 @@ public class Cars {
         }
 
     }
-    private Integer findHigherNumber(int a1, int a2){
+    private Integer findHigherNumber(int a1, int a2){ //두 수중 높은 수
         int HigherNumber = 0;
         if(a1 >= a2){
             HigherNumber = a1;
@@ -57,7 +58,7 @@ public class Cars {
         return HigherNumber;
     }
 
-    public Integer findHighestNumber(){
+    public Integer findHighestNumber(){ //가장 높은 Position 확인
         int HighestNumber = 0;
         for(Car car:CarList){
             HighestNumber = findHigherNumber(HighestNumber,car.getPosition());
@@ -65,7 +66,7 @@ public class Cars {
         return HighestNumber;
     }
 
-    private List<Car> findWinner(){
+    private List<Car> findWinner(){ //가장 높은 Position을 가진 차의 목록 확인
         int HighestNumber = findHighestNumber();
 
         List<Car> Winner = CarList.stream()
@@ -82,6 +83,11 @@ public class Cars {
         return Winners;
     }
 
+    private void validateNameDuplication(List<String> CarList){ //이름 중복 여부 검증
+        if(CarList.size() != CarList.stream().distinct().count()){
+            throw new IllegalArgumentException("중복 이름이 존재합니다");
+        }
+    }
 
 
 

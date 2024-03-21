@@ -23,4 +23,9 @@ public class Input {
         System.out.println("시도할 회수는 몇회인가요?");
         return scanner.nextInt();
     }
+
+    private boolean validateAmount(int AttemptAmount){
+        return AttemptAmount > 0;
+    }
+
 }
