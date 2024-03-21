@@ -1,6 +1,6 @@
 package Domain;
 
-import util.InputValidate;
+import util.InputValidator;
 import View.Output;
 
 import java.util.ArrayList;
@@ -16,8 +16,10 @@ public class Cars {
     }
 
     private List<Car> setCarList(List<String> CarNames){ //List<String>을 List<Car> 로 전환
-        InputValidate inputValidate = new InputValidate();
-        inputValidate.validateNameDuplication(CarNames);
+        InputValidator inputValidator = new InputValidator();
+
+        inputValidator.validateNameDuplication(CarNames);
+
         List<Car> myCarList = new ArrayList<>();
         for(String CarName:CarNames){
             myCarList.add(new Car(CarName,0));

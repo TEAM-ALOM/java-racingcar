@@ -2,15 +2,23 @@ package util;
 
 import java.util.List;
 
-public class InputValidate {
-    public InputValidate(){}
+public class InputValidator {
+    public InputValidator(){}
+    /*
+    시도 횟수 > 0
 
-    private static final String INVALID_ATTEMPT_AMOUNT_MESSAGE = "시도 횟수는 1이상이어야 합니다";
-    private static final String INVALID_NAME_LENGTH_MESSAGE = "이름이 6글자 이상입니다";
-    private static final String INVALID_NAME_PRESENT_MESSAGE = "이름이 존재하지 않습니다";
-    private static final String INVALID_NAME_DUPLICATION_MESSAGE = "중복 이름이 존재합니다";
+    이름 길이 < 6
+    이름 존재
+    이름 미중복
+    */
+
+    private static final String INVALID_ATTEMPT_AMOUNT_MESSAGE = "시도 횟수가 1보다 적습니다.";
+    private static final String INVALID_NAME_LENGTH_MESSAGE = "이름이 6글자 이상입니다.";
+    private static final String INVALID_NAME_PRESENT_MESSAGE = "이름이 없는 차가 입력되었습니다.";
+    private static final String INVALID_NAME_DUPLICATION_MESSAGE = "중복 이름이 존재합니다.";
     private static final int VALID_ATTEMPT_AMOUNT_LOWER_BOUND = 1;
     private static final int VALID_NAME_LENGTH_UPPER_BOUND = 5;
+
 
 
     public void validateAttemptAmount(int AttemptAmount){ //시도 회수 1이상인지 검증
@@ -31,4 +39,5 @@ public class InputValidate {
             throw new IllegalArgumentException(INVALID_NAME_DUPLICATION_MESSAGE);
         }
     }
+
 }

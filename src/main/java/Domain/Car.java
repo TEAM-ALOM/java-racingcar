@@ -1,6 +1,6 @@
 package Domain;
 
-import util.InputValidate;
+import util.InputValidator;
 
 public class Car {
 
@@ -8,8 +8,8 @@ public class Car {
     private int position = 0;
 
     public Car(final String name,final int position){
-        InputValidate inputValidate = new InputValidate();
-        inputValidate.validateName(name);
+        InputValidator inputValidator = new InputValidator();
+        inputValidator.validateName(name);
         this.name = name;
         this.position = position;
     }
