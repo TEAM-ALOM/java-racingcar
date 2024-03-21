@@ -19,7 +19,6 @@ public class RacingController {
         int AttemptAmount = input.readAttemptAmount(); //실행 횟수 입력
 
         Cars cars = new Cars(CarList);
-        //output.outCarList(cars.getCarList());
 
         cars.playGame(AttemptAmount);
         output.outWinner(cars);

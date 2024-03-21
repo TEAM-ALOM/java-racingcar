@@ -4,7 +4,9 @@ public class Car {
 
     private String name;
     private int position = 0;
+
     public Car(final String name,final int position){
+        validate(name);
         this.name = name;
         this.position = position;
     }
@@ -31,6 +33,15 @@ public class Car {
 
     public boolean isPosition(int position){
         return this.position == position;
+    }
+
+    public void validate(String name){
+        if(name.isEmpty()){
+            throw new IllegalArgumentException("이름이 존재하지 않습니다");
+        }
+        if(name.length() > 5){
+            throw new IllegalArgumentException("이름이 6글자 이상입니다");
+        }
     }
 
 

@@ -9,12 +9,7 @@ import java.util.List;
 public class Output {
     public Output(){}
 
-    public void outCarList(List<Car> cars){
-        for(Car car:cars){
-            System.out.println("Car Name : "+car.getName());
-            System.out.println("Car Position : "+car.getPosition());
-        }
-    }
+
 
     public void outPosition(int position){
         for(int i=0;i<position;i++){
