@@ -1,17 +1,18 @@
 package View;
 
-import domain.Car;
+import domain.car.Car;
 
 import java.util.List;
 
 public class OutputView {
     static String OUTPUT_EXCUTION_RESULT_STATEMENT = "실행 결과";
     static String OUTPUT_GAME_RESULT_STATEMENT = "가 최종 우승 했습니다";
-    public static void outputExcutionResultStateMent(){
+    public static void outputExcutionResultStatement(){
 
         System.out.println(OUTPUT_EXCUTION_RESULT_STATEMENT);
     }
     public static void outputExcutionResult(List<Car> cars){
+        //outputExcutionResultStatement();
         for(int i=0; i<cars.size(); i++){
             System.out.print(cars.get(i).getName()+" : ");
             outputExcutionResultCarProgress(cars.get(i).getProgress());

@@ -1,12 +1,14 @@
-package domain;
+package domain.car;
 
 import java.util.Random;
 
-public class Car {
+public class RandomProgressCar implements Car {
     private String name;
     private int progress;
+    public RandomProgressCar(){
 
-    public Car(String name){
+    }
+    public RandomProgressCar(String name){
         this.name = name;
         this.progress = 0;
     }
@@ -15,7 +17,6 @@ public class Car {
         if(random.nextInt(10)>=4)
             progressCar();
     }
-
     public int progressCar(){
         progress += 1;
         return progress;
@@ -25,6 +26,11 @@ public class Car {
     }
     public int getProgress(){
         return progress;
+    }
+
+    @Override
+    public Car returnCar(String name) {
+        return new RandomProgressCar(name);
     }
 
 
