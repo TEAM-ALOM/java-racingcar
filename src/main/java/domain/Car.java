@@ -10,12 +10,16 @@ public class Car {
         this.name = name;
         this.progress = 0;
     }
-    public void carProgress(){
-        Random random = new Random();
+    public void excuteProgressOrStopCar(){
+       Random random = new Random();
         if(random.nextInt(10)>=4)
-            progress += 1;
+            progressCar();
     }
 
+    public int progressCar(){
+        progress += 1;
+        return progress;
+    }
     public String getName(){
         return name;
     }

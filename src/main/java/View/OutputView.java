@@ -14,7 +14,7 @@ public class OutputView {
     public static void outputExcutionResult(List<Car> cars){
         for(int i=0; i<cars.size(); i++){
             System.out.print(cars.get(i).getName()+" : ");
-            OutputExcutionResultCarProgress(cars.get(i).getProgress());
+            outputExcutionResultCarProgress(cars.get(i).getProgress());
             System.out.println();
         }
         System.out.println();
@@ -25,9 +25,12 @@ public class OutputView {
         }
         System.out.print(winningCarNames.get(winningCarNames.size() - 1) +OUTPUT_GAME_RESULT_STATEMENT);
     }
-    public static void OutputExcutionResultCarProgress(int frontNumberProgressed){
+    public static void outputExcutionResultCarProgress(int frontNumberProgressed){
         for (int i=0; i<frontNumberProgressed; i++)
             System.out.print("-");
+    }
+    public static void outputErrorMessage(String e){
+        System.out.println(e);
     }
 
 

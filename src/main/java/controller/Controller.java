@@ -10,13 +10,19 @@ import java.util.List;
 public class Controller {
 
     public void startGame(){
-        String[] carNames = InputView.inputCarNames();
-        CarGame carGame = new CarGame(carNames);
-        int tryNumber = InputView.inputGameTryNumber();
-        OutputView.outputExcutionResultStateMent();
-        excuteAllRacingGame(carGame,tryNumber);
-        OutputView.outputGameResult(carGame.returnWinningCarNames());
+        try {
+            String[] carNames = InputView.inputCarNames();
+            CarGame carGame = new CarGame(carNames);
+            int tryNumber = InputView.inputGameTryNumber();
+            OutputView.outputExcutionResultStateMent();
+            excuteAllRacingGame(carGame, tryNumber);
+            OutputView.outputGameResult(carGame.returnWinningCarNames());
+        }
+        catch (IllegalArgumentException e){
+            OutputView.outputErrorMessage(e.getMessage());
+        }
     }
+
     public void excuteAllRacingGame(CarGame carGame,int tryNumber){
         for(int i=0; i<tryNumber; i++) {
             carGame.excuteRacingGame();
