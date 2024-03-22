@@ -8,7 +8,7 @@ public class Name {
 
     public Name(final String name){
         validate(name); //이름 유효성 검사
-        this.name = name; //유효한 이름이면 name필드에 저장
+        this.name = name; //유효한 이름이면 name 필드에 저장
 
     }
 
