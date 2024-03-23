@@ -25,8 +25,7 @@ class CarGameTest {
         CarGame carGame = new CarGame(names, new FixProgressCar());
         carGame.excuteRacingGame();
         //then
-        assertThat(
-                carGame.getCars().get(0).getProgress()).isEqualTo(1);
+        assertThat(carGame.getCars().get(0).getProgress()).isEqualTo(1);
     }
     @Test
     void 자동차_정지_테스트(){
@@ -36,8 +35,7 @@ class CarGameTest {
         CarGame carGame = new CarGame(names, new FixProgressCar());
         carGame.excuteRacingGame();
         //then
-        assertThat(
-                carGame.getCars().get(0).getProgress()).isEqualTo(0);
+        assertThat(carGame.getCars().get(0).getProgress()).isEqualTo(0);
     }
 
     @Test

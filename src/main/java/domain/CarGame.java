@@ -2,27 +2,25 @@ package domain;
 
 import domain.car.Car;
 import domain.car.RandomProgressCar;
+import exception.Exception;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
 public class CarGame {
     private List<Car> cars = new ArrayList<>();
     private final Car carStrategy;
     public CarGame(String []carNames,Car carStrategy){
         this.carStrategy = carStrategy;
         for (String carName : carNames) {
-            validateNameLengthMax(carName);
+            Exception.validateNameLength(carName);
             Car newCar = carStrategy.returnCar(carName);
             cars.add(newCar);
         }
     }
-
     public List<Car> getCars() {
         return cars;
     }
-
     public void excuteRacingGame(){
         for (Car car : cars) {
             car.excuteProgressOrStopCar();
@@ -43,12 +41,4 @@ public class CarGame {
         int maxIndex = cars.size() - 1;
         return cars.get(maxIndex);
     }
-    public void  validateNameLengthMax(String name) {
-        if(name.length()>5){
-            throw new IllegalArgumentException("이 자동차 이름은 5자를 초과합니다.");
-        }
-    }
-
-
-
 }

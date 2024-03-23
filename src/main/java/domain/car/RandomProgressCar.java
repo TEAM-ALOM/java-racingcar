@@ -6,7 +6,6 @@ public class RandomProgressCar implements Car {
     private String name;
     private int progress;
     public RandomProgressCar(){
-
     }
     public RandomProgressCar(String name){
         this.name = name;
@@ -27,11 +26,9 @@ public class RandomProgressCar implements Car {
     public int getProgress(){
         return progress;
     }
-
     @Override
     public Car returnCar(String name) {
         return new RandomProgressCar(name);
     }
-
 
 }

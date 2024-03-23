@@ -3,12 +3,9 @@ package domain.car;
 import java.util.Random;
 
 public class FixProgressCar implements Car{
-
     private String name;
     private int progress;
-
     public FixProgressCar(){
-
     }
     public FixProgressCar(String name){
         this.name = name;

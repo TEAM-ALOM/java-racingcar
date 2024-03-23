@@ -9,8 +9,15 @@ import org.junit.jupiter.api.Test;
 public class ExceptionTest {
 
     @Test
-    void 이름_예외_테스트() {
+    void 이름길이_초과_예외_테스트() {
         String[] names = {"aaaa", "bbbbbb", "c"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CarGame carGame = new CarGame(names,new RandomProgressCar());
+        });
+    }
+    @Test
+    void 이름길이_미만_예외_테스트() {
+        String[] names = {"aaaa", "", "c"};
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CarGame carGame = new CarGame(names,new RandomProgressCar());
         });
@@ -20,7 +27,7 @@ public class ExceptionTest {
         int tryNumber = -1;
         Controller controller = new Controller();
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            controller.validateTryNumber(tryNumber);
+            Exception.validateTryNumber(tryNumber);
         });
 
     }
