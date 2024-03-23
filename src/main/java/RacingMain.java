@@ -1,7 +1,33 @@
-public class RacingMain {
+import java.util.List;
 
+import controller.RacingStadium;
+import controller.ViewController;
+import domain.Car;
+import domain.RacingGame;
+import domain.Winner;
+import view.OutputView;
+
+public class RacingMain {
     public static void main(String[] args) {
-        // TODO: MVC 패턴을 기반으로 자동차 경주 미션 구현해보기
-        System.out.println("Hello, World!");
+        runApplication();
+    }
+
+    private static void runApplication() {
+        try {
+            final String[] inputCarNames = ViewController.generateRacingCarNames();
+            final List<Car> racingCars = RacingGame.generateCars(inputCarNames);
+            final int GameRound = ViewController.generateGameRound();
+
+            RacingGame racingGame = new RacingGame(racingCars);
+            RacingStadium racingStadium = new RacingStadium();
+            racingStadium.startRace(GameRound, racingGame);
+
+            Winner winner = new Winner();
+            final List<String> winners = winner.findWinners(racingCars);
+            OutputView.printWinners(winners);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            runApplication();
+        }
     }
 }
