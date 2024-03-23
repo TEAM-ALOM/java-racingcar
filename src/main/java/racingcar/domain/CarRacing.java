@@ -1,20 +1,21 @@
 package racingcar.domain;
 
+import java.util.List;
 import java.util.Random;
 
 public class CarRacing {
-    private final int CRITERIA = 4;
+    private static final int CRITERIA = 4;
+
+    public static void RacingCars(List<Car> cars){
+        for (Car car : cars) Racing(car);
+    }
+
     public static void Racing(Car car){
-        if(isMoving()){
+        if(isMoving())
             car.moveCar();
-        }
     }
 
     private static boolean isMoving(){
-        Random random = new Random();
-        if(random.nextInt(10) >= 4){
-            return true;
-        }
-        return false;
+        return new Random().nextInt(10) >= CRITERIA;
     }
 }
