@@ -2,6 +2,7 @@ package Domain;
 
 import util.InputValidator;
 import View.Output;
+import util.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class Cars {
         for(int i=0;i<AttemptAmount;i++){
             playOnce();
             output.outCurrentSituation(CarList);
-            System.out.println("");
+            System.out.println();
         }
 
     }
