@@ -18,8 +18,8 @@ public class Car {
         }
     }
 
-    public CarName getCarName() {
-        return carName;
+    public String getCarName() {
+        return carName.getCarName();
     }
 
     public int getDistance() {

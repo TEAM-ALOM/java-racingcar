@@ -16,11 +16,18 @@
 - ## TryConut(시도 횟수) ##
     - 음수 입력 X (횟수 상한은 없나??)
 
-# dto
+# ~~dto~~
 
 # controller
+- 이름 입력받아서 Cars로 저장
 
-# service
+# utils
+- ## Parser ##
+    - 이름: 쉼표 기준으로 분리
+    - 시도 횟수
+
+- ## RandomNumberGenerator ##
+    - 0~9 랜덤 숫자 생성기
 
 # view
 - ## InputView ##
