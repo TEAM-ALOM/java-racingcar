@@ -4,6 +4,7 @@ import java.util.List;
 
 public class InputValidator {
     public InputValidator(){}
+
     /*
     시도 횟수 > 0
 
