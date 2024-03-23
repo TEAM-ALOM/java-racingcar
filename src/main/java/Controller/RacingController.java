@@ -2,7 +2,7 @@ package Controller;
 
 import Domain.Cars;
 import View.Input;
-import util.InputValidator;
+import Domain.InputValidator;
 import View.Output;
 
 import java.util.List;

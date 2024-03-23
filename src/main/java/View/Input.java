@@ -1,7 +1,7 @@
 package View;
 
 
-import util.Parser;
+import Domain.Parser;
 
 import java.util.List;
 import java.util.Scanner;

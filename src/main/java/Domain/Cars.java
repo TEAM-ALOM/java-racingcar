@@ -1,8 +1,6 @@
 package Domain;
 
-import util.InputValidator;
 import View.Output;
-import util.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.List;

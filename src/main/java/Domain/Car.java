@@ -1,7 +1,5 @@
 package Domain;
 
-import util.InputValidator;
-
 public class Car {
 
     private String name;
