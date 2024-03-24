@@ -14,7 +14,7 @@ public class Car {
     }
 
     //Car name 입력받았을 때
-    private Car from(final String name){
+    static Car from(final String name){
         return new Car(name, 0);
     }
 
