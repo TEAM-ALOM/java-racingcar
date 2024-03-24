@@ -1,2 +1,4 @@
-package domain;public class Count {
+package domain;
+
+public class Count {
 }

@@ -1,2 +1,4 @@
-package domain;public class NumberGenerator {
+package domain;
+
+public class NumberGenerator {
 }

@@ -1,2 +1,4 @@
-package domain;public class RacingGame {
+package domain;
+
+public class RacingGame {
 }

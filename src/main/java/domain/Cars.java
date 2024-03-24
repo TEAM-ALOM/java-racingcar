@@ -1,2 +1,5 @@
-package domain;public class Cars {
+package domain;
+
+public class Cars {
+    
 }
