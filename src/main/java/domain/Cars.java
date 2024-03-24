@@ -10,26 +10,28 @@ public class Cars {
     public Cars(List<String> carNameList) {
         cars = makeCarObject(carNameList);
     }
-    public List<Car> makeCarObject(List<String> carNames){
+
+    public List<Car> makeCarObject(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
-        for(String name : carNames){
+        for (String name : carNames) {
             cars.add(new Car(name));
         }
         return cars;
     }
 
-    public void moveAllCars(){
-        for(Car car : cars){
+    public void moveAllCars() {
+        for (Car car : cars) {
             int movePoint = numberGenerator.generate();
             car.move(movePoint);
         }
     }
-    public int findMaxPosition(){
+
+    public int findMaxPosition() {
         int maxPosition = 0;
-        for(Car car : cars){
+        for (Car car : cars) {
             int carPosition = car.getPosition();
 
-            if (carPosition > maxPosition){
+            if (carPosition > maxPosition) {
                 maxPosition = carPosition;
             }
         }
@@ -38,13 +40,12 @@ public class Cars {
     }
 
 
-
-    public List<String> findWinner(int maxPosition){
+    public List<String> findWinner(int maxPosition) {
         List<String> winners = new ArrayList<>();
-        for(Car car : cars){
+        for (Car car : cars) {
             int carPosition = car.getPosition();
 
-            if(carPosition == maxPosition){
+            if (carPosition == maxPosition) {
                 winners.add(car.getCarName());
             }
         }

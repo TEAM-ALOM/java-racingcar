@@ -18,7 +18,7 @@ public class RacingTest {
         List<Car> carList = cars.getCars();
         int count = 1;
 
-        for(Car car : carList){
+        for (Car car : carList) {
             car.setPosition(count);
             count++;
         }

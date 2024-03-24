@@ -34,8 +34,7 @@ public class InputView {
             if (count < 0) {
                 throw new IllegalArgumentException(NOT_VALUABLE_COUNT);
             }
-        }
-        catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println(NOT_VALUABLE_COUNT);
         }
 

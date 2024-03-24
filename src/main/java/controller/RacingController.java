@@ -13,7 +13,7 @@ public class RacingController {
     OutputView outputView = new OutputView();
 
 
-    public void startRacing(){
+    public void startRacing() {
         Cars cars;
         List<String> winners;
         int count;
@@ -21,7 +21,7 @@ public class RacingController {
         cars = new Cars(inputView.readCarName());
         count = inputView.readCount();
 
-        for(int i=0;i<count;i++){
+        for (int i = 0; i < count; i++) {
             race(cars);
         }
 
@@ -29,7 +29,7 @@ public class RacingController {
         outputView.printWinner(winners);
     }
 
-    private void race(Cars cars){
+    private void race(Cars cars) {
         cars.moveAllCars();
         outputView.printStatus(cars.getCars());
     }

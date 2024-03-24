@@ -25,7 +25,7 @@ public class StringParserTest {
 
     @DisplayName("차 이름 길이 테스트")
     @Test
-    void checkCarNameLength(){
+    void checkCarNameLength() {
         List<String> carList = Arrays.asList("Tico", "Kia", "Matiz", "Ren");
         //List<String> carList = Arrays.asList("Ticooo", "Kiaaaa", "Matiz", "Ren");
 
