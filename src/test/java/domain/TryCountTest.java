@@ -26,10 +26,10 @@ class TryCountTest {
                 .doesNotThrowAnyException();
     }
 
-    @DisplayName("decrease는 시도 횟수를 1 감소시킴")
+    @DisplayName("decrease는 tryCount를 1 감소시킴")
     @ParameterizedTest
     @CsvSource(value = {"1, 0", "5, 4", "48, 47"})
-    void 시도_횟수_감소_확인(int beforeValue, int afterValue) {
+    void 시도_횟수_감소(int beforeValue, int afterValue) {
         TryCount tryCount = new TryCount(beforeValue);
         tryCount.decrease();
         assertThat(tryCount.getTryCount()).isEqualTo(afterValue);
