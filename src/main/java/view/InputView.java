@@ -2,6 +2,7 @@ package view;
 
 import domain.StringParser;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +11,8 @@ public class InputView {
     private static final String REQEUST_ATTEMPT_NUMBER = "시도할 회수는 몇회인가요?";
     private static final String CAR_NAME_LENGTH_ERROR = "차 이름은 5자 이내여야 합니다.";
     private static final String CAR_NAME_BLANK_ERROR = "차 이름은 공백일 수 없습니다.";
+
+    private static final String NOT_VALUABLE_COUNT = "양의 정수만 입력 할 수 있습니다.";
     private Scanner scanner = new Scanner(System.in);
 
     public List<String> readCarName() {
@@ -24,7 +27,17 @@ public class InputView {
 
     public int readCount() {
         System.out.println(REQEUST_ATTEMPT_NUMBER);
-        int count = scanner.nextInt();
+        int count = 0;
+
+        try {
+            count = scanner.nextInt();
+            if (count < 0) {
+                throw new IllegalArgumentException(NOT_VALUABLE_COUNT);
+            }
+        }
+        catch (InputMismatchException e){
+            System.out.println(NOT_VALUABLE_COUNT);
+        }
 
         return count;
     }
