@@ -14,7 +14,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
-        final List<Car> cars= generateCars(carNames);
+        final List<Car> cars = generateCars(carNames);
         validateDuplication(carNames);
         this.cars = cars;
     }
