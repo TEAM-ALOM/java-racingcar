@@ -1,5 +1,7 @@
 package domain;
 
+import utils.RandomNumberGenerator;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,6 +23,13 @@ public class Cars {
         return cars.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+    }
+
+    public void moveCars(RandomNumberGenerator randomNumberGenerator) {
+        for (Car car : cars) {
+            int randomNumber = randomNumberGenerator.generate();
+            car.move(randomNumber);
+        }
     }
 
 //    이름 중복 확인

@@ -20,6 +20,9 @@
 
 # controller
 - 이름 입력받아서 Cars로 저장
+- 시도 횟수 입력받아 TryCount로 저장
+- 레이스 진행
+- 결과 출력
 
 # utils
 - ## Parser ##
