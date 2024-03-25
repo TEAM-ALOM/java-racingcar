@@ -22,22 +22,23 @@ public class RacingGameController {
     //run 매서드 게임 실행을 위한 매서드
     //자동차 이름 입력, 시도 횟수 입력, 경주 진행, 최종 우ㅇ승자 출력
     public void run() throws IOException {
-        System.out.println("check");
         Cars cars = getCars();
+        System.out.println("check");
         AttemptNumber attemptNumber = getAttemptNumber();
         race(cars, attemptNumber);
         printWinners(cars);
     }
 
-    private Cars getCars() throws IOException{
+    private Cars getCars() throws IOException {
         List<String> carNames = InputView.readCarNames();
-        try{
+        try {
             return Cars.from(carNames);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getCars();
         }
     }
+
 
     private AttemptNumber getAttemptNumber() throws IOException{
         try{

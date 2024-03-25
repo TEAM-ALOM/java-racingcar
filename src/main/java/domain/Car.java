@@ -14,12 +14,12 @@ public class Car {
     }
 
     //Car name 입력받았을 때
-    static Car from(final String name){
+    public static Car from(final String name){
         return new Car(name, 0);
     }
 
     //Car position 입력받았을 때
-    private Car of(final String name, final int position){
+    public static Car of(final String name, final int position){
         return new Car(name, position); //객체 생성?
     }
     //궁금증.. 근데 그러면 new Car 형식이 두 개인데 객체가 두개씩 생성되는 거 아닌가...
