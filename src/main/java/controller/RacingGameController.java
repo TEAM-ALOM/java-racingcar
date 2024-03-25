@@ -53,7 +53,7 @@ public class RacingGameController {
     private void race(final Cars cars, final AttemptNumber attemptNumber) throws IOException{
         OutputView.printResult(); //"실행결과" 메세지 출력
         while(attemptNumber.isRemain()){
-            attemptNumber.decrease();;
+            attemptNumber.decrease();
             cars.moveAll(numberGenerator);
             printStatus(cars);
         }

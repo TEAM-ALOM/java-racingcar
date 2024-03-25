@@ -27,7 +27,7 @@ public class Car {
     //움직임
     public void move(final int number){
         if(number >= MOVED_LOWER_BOUND){
-            position.increase();; //4 이상이면 위치 증가
+            position.increase(); //4 이상이면 위치 증가
         }
     }
     //car 이름 반환
