@@ -14,7 +14,8 @@ public class Round {
         this.nowRound = nowRound;
     }
 
-    public static Round of(int totalRound) {
+    // 그러니까 이제 생성자 대신 이렇게 쓰는게 좋음!
+    public static Round totalRoundFrom(int totalRound) {
         validate(totalRound);
         return new Round(totalRound, DEFAULT_ROUND);
     }
@@ -26,7 +27,7 @@ public class Round {
     }
 
     public boolean isGameOver() {
-        return nowRound < totalRound;
+        return nowRound >= totalRound;
     }
 
     public void step(int round) {

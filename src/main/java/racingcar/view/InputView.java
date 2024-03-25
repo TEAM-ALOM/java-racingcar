@@ -11,6 +11,7 @@ public class InputView {
         System.out.println(INPUT_CAR_NAME_MESSAGE.getMessage());
         String input = Console.readLine();
 
+        // 아무것도 입력되지 않은 경우
         InputValidator.validateInputCarName(input);
 
         return input;

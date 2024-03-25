@@ -14,7 +14,7 @@ public class InputParse {
     public static int parseInt(String input) {
         try {
             return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) { // input을 숫자로 바꿀 수 없으면 오류를 발생시킴
             throw new IllegalArgumentException(TOTAL_ROUND_INPUT_ERROR.getErrorMessage());
         }
     }

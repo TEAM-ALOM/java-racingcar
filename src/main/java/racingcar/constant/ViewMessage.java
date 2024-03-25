@@ -25,6 +25,12 @@ public enum ViewMessage {
 
         winnerNames.forEach(winners::add);
 
+        /*
+        for(String winnerName: winnerNames) {
+            winners.add(winnerName);
+        }
+         */
+
         return message + winners;
     }
 }

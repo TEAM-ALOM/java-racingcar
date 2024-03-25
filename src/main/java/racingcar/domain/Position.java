@@ -18,6 +18,12 @@ public class Position implements Comparable<Position> {
         return POSITION_STRING.repeat(position);
     }
 
+    /*
+        A position = 3
+        B position = 2
+        A.compareTo(B)
+     */
+
     @Override
     public int compareTo(Position targetPosition) {
         return this.position - targetPosition.position;

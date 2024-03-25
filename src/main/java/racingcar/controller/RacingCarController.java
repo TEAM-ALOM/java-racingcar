@@ -27,7 +27,7 @@ public class RacingCarController {
 
     private void startGame(Cars cars, Round round) {
         OutputView.printResultHeader();
-        while (round.isGameOver()) {
+        while (!round.isGameOver()) {
             cars.moveAll();
             List<String> messages = cars.getMessages();
             OutputView.printResult(messages);
@@ -38,12 +38,12 @@ public class RacingCarController {
     private Round inputRound() {
         String input = InputView.inputRound();
         int totalRound = InputParse.parseInt(input);
-        return Round.of(totalRound);
+        return Round.totalRoundFrom(totalRound);
     }
 
     private Cars inputRacingCarName() {
         String input = InputView.inputCarNames();
         List<String> carNames = InputParse.splitInputCarNames(input);
-        return Cars.of(carNames);
+        return Cars.carNamesFrom(carNames);
     }
 }

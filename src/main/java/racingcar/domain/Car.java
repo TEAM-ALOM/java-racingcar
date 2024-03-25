@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.RandomGenerator;
+
 import java.util.StringJoiner;
 
 import static racingcar.constant.ErrorMessage.CAR_NAME_CONTAINS_SPACE_ERROR;
@@ -13,8 +15,6 @@ public class Car implements Comparable<Car> {
     private static final int MAX_NAME_SIZE = 5;
     private static final String NAME_SIZE_DELIMITER = ":";
     private static final String SPACE = " ";
-    private static final int RANDOM_MIN = 0;
-    private static final int RANDOM_MAX = 9;
 
     private final String name;
     private final Position position;
@@ -25,7 +25,7 @@ public class Car implements Comparable<Car> {
         this.position = new Position(position);
     }
 
-    public static Car of(String name) {
+    public static Car nameFrom(String name) {
         return new Car(name, DEFAULT_POSITION);
     }
 
@@ -44,7 +44,8 @@ public class Car implements Comparable<Car> {
     }
 
     public void move() {
-        int randomNumber = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+        // 랜덤 숫자를 반환하는 건 Car와 직접적인 연관이 있는게 아니므로 RandomGenerator 클래스를 따로 만들어주었다.
+        int randomNumber = RandomGenerator.getRandomMoveSize();
 
         if (randomNumber > MOVE_LOWER_BOUND) {
             position.move(MOVE_SIZE);
@@ -69,7 +70,9 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        StringJoiner stringJoiner = new StringJoiner(" ");
+
+        //SPACE도 넣어서 문자열(한문장)으로 만들어줌
+        StringJoiner stringJoiner = new StringJoiner(SPACE);
 
         stringJoiner.add(name);
         stringJoiner.add(NAME_SIZE_DELIMITER);
