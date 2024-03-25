@@ -35,7 +35,7 @@ public class OutputView {
         return POSITION_SYMBOL.repeat(Math.max(0,position)); //max 음수 방지, repeat 지정 횟수만큼 반복
     }
 
-    private static void printWinners(final List<CarDto> carDtos) {
+    public static void printWinners(final List<CarDto> carDtos) {
         List<String> carNames = carDtos.stream()
                 .map(CarDto::getName)
                 .collect(Collectors.toList());
