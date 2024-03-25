@@ -17,6 +17,9 @@ public class InputView {
     }
 
     public static int getTryCount(){
-
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int count = scanner.nextInt();
+        scanner.nextLine();
+        return count;
     }
 }
