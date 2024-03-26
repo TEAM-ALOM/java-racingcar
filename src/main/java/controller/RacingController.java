@@ -28,7 +28,7 @@ public class RacingController {
             System.out.println(e.getMessage());
         }
     }
-    
+
     private void race(RacingGame racingGame){
         ResultView.Start(racingGame.getCars());
         for(int i = 0; i < racingGame.getTryCount(); i++){
