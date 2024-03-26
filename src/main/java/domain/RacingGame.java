@@ -4,6 +4,7 @@ package domain;
 import org.kokodak.Randoms;
 import view.ResultView;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class RacingGame {
     private final String carNames;
     private final int tryCount;
     String[] carList;
-    Map<String, Integer> carMove;
+    Map<String, Integer> moveCnt;
 
     public RacingGame(String carNames, int tryCount) {
         this.carNames = carNames;
@@ -21,35 +22,46 @@ public class RacingGame {
     }
 
     public void race() {
-        carMove = setCarMove(carList);
+        moveCnt = setMoveCnt(carList);
         for (int i = 0; i < tryCount; i++) {
+            System.out.println();
             setRandomMove();
-            ResultView.printCarMove(carMove, tryCount);
+            ResultView.printCarMove(moveCnt);
         }
 
     }
 
-    private Map<String, Integer> setCarMove(String[] carList) {
-        Map<String, Integer> carMove = new HashMap<>();
+    private Map<String, Integer> setMoveCnt(String[] carList) {
+        Map<String, Integer> moveCnt = new HashMap<>();
         for (String s : carList) {
-            carMove.put(s, 0);
+            moveCnt.put(s, 0);
         }
-        return carMove;
+        return moveCnt;
     }
 
     private void setRandomMove() {
         for (int i = 0; i < carList.length; i++) {
             int move = Randoms.pickNumberInRange(0, 9);
             if (move >= 4) {
-                carMove.put(carList[i], carMove.get(carList[i]) + 1);
+                moveCnt.put(carList[i], moveCnt.get(carList[i]) + 1);
             }
         }
     }
 
     public List<String> getWinners() {
+        System.out.println();
+        for (String s : moveCnt.keySet()) {
+            String bars = "-".repeat(moveCnt.get(s));
+            System.out.println(s + " : " + bars);
+        }
+        return findWinners(moveCnt);
+    }
 
-        List<String> winners;
-
-        return winners;
+    private List<String> findWinners(Map<String, Integer> moveCnt) {
+        int max = Collections.max(moveCnt.values());
+        return moveCnt.entrySet().stream()
+                .filter(m -> m.getValue() == max)
+                .map(Map.Entry::getKey)
+                .toList();
     }
 }
