@@ -6,7 +6,8 @@ import view.ResultView;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
+
 
 public class RacingController {
     public void run(){
@@ -27,8 +28,9 @@ public class RacingController {
         }
     }
     private void race(RacingGame racingGame){
-
+        ResultView.Start(racingGame.getCars());
     }
+
 
     private List<String> getWinners(){
 
