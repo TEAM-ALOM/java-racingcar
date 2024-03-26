@@ -6,6 +6,7 @@ import view.ResultView;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 
@@ -27,19 +28,21 @@ public class RacingController {
             System.out.println(e.getMessage());
         }
     }
+    
     private void race(RacingGame racingGame){
         ResultView.Start(racingGame.getCars());
         for(int i = 0; i < racingGame.getTryCount(); i++){
-            Iterator<String> iterator = racingGame.getCars().keySet().iterator();
-            while(iterator.hasNext()){
-                String name = iterator.next();
-                Random random = new Random();
-                int randomNumber = random.nextInt(10);
-                if(randomNumber >= 4){
-                    racingGame.updateDistance(name);
-                }
-            }
+            generateRandomDistance(racingGame.getCars());
+        }
+    }
 
+    private void generateRandomDistance(Map<String, Integer> cars){
+        Iterator<String> iterator = cars.keySet().iterator();
+        while(iterator.hasNext()){
+            String name = iterator.next();
+            Random random = new Random();
+            int randomNumber = random.nextInt(10);
+            RacingGame.updateDistance(name, randomNumber);
         }
     }
 
