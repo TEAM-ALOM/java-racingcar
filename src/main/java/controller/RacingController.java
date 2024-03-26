@@ -14,11 +14,11 @@ public class RacingController {
 
             final var cars = InputView.readCarNames();
             final var tryCount = InputView.readTryCount();
-            tryCountValidate(tryCount);
-            carNamesValidate(cars);
+            InputView.carNamesValidate(cars);
+            InputView.tryCountValidate(tryCount);
 
             final var racingGame = new RacingGame(cars, tryCount);
-            race();
+            race(racingGame);
 
             ResultView.printWinners(getWinners());
 
@@ -26,30 +26,12 @@ public class RacingController {
             System.out.println(e.getMessage());
         }
     }
-    private void race(){
+    private void race(RacingGame racingGame){
 
     }
 
     private List<String> getWinners(){
 
-    }
-
-    private void tryCountValidate(int count){
-        if(count <= 0)
-            throw new IllegalArgumentException("[ERROR]시도 횟수는 양수입니다.");
-    }
-    private void carNamesValidate(Map<String, Integer> cars){
-        Iterator<String> keys = cars.keySet().iterator();
-        while(keys.hasNext()){
-            String key = keys.next();
-            lengthValidate(key);
-        }
-
-    }
-
-    private void lengthValidate(String name){
-        if(name.length() > 5)
-            throw new IllegalArgumentException("[ERROR]차 이름은 5자 이하여야합 니다.");
     }
 
 }
