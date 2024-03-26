@@ -14,6 +14,11 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
+    public void updateDistance(String carName){
+        int distance = cars.get(carName) + 1;
+        this.cars.replace(carName, distance);
+    }
+
     public Map<String, Integer> getCars() {
         return cars;
     }

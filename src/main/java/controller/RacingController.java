@@ -29,8 +29,19 @@ public class RacingController {
     }
     private void race(RacingGame racingGame){
         ResultView.Start(racingGame.getCars());
-    }
+        for(int i = 0; i < racingGame.getTryCount(); i++){
+            Iterator<String> iterator = racingGame.getCars().keySet().iterator();
+            while(iterator.hasNext()){
+                String name = iterator.next();
+                Random random = new Random();
+                int randomNumber = random.nextInt(10);
+                if(randomNumber >= 4){
+                    racingGame.updateDistance(name);
+                }
+            }
 
+        }
+    }
 
     private List<String> getWinners(){
 
