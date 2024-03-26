@@ -3,19 +3,22 @@ package domain;
 import java.util.*;
 
 public class RacingGame {
-    private Map<String, Integer> carNames;
+    private Map<String, Integer> cars;
     private int tryCount;
 
-    public RacingGame(Map<String, Integer> carNames, int tryCount){
-        this.carNames = carNames;
+    public RacingGame(){
+
+    }
+    public RacingGame(Map<String, Integer> cars, int tryCount){
+        this.cars = cars;
         this.tryCount = tryCount;
     }
 
-    public void race(){
-
+    public Map<String, Integer> getCars() {
+        return cars;
     }
 
-    public void getWinners(){
-
+    public int getTryCount() {
+        return tryCount;
     }
 }
