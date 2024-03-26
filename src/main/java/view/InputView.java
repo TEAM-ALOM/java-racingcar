@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import static view.InputValidate.isDuplicateCarName;
+import static view.InputValidate.isValidCarName;
+
 public class InputView {
 
     public static List<String> getCarNames() {
@@ -22,30 +25,30 @@ public class InputView {
         isDuplicateCarName(list);
         return list;
     }
-
-    private static void isValidCarName(List<String> carList) {
-        for (String s : carList) {
-            isValidCarNameLength(s);
-        }
-    }
-
-    private static void isValidCarNameLength(String carName) {
-        if (carName.length() < 1 || carName.length() > 5) {
-            ExceptionMessage.isInvalidNameLength();
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private static void isDuplicateCarName(List<String> carList) {
-        HashSet<String> names = new HashSet<>(carList);
-        System.out.println("set size = " + names.size());
-        System.out.println("list size = " + carList.size());
-        System.out.println();
-        if (names.size() != carList.size()) {
-            ExceptionMessage.isDuplicateCarName();
-            throw new IllegalArgumentException();
-        }
-    }
+//
+//    private static void isValidCarName(List<String> carList) {
+//        for (String s : carList) {
+//            isValidCarNameLength(s);
+//        }
+//    }
+//
+//    private static void isValidCarNameLength(String carName) {
+//        if (carName.length() < 1 || carName.length() > 5) {
+//            ExceptionMessage.isInvalidNameLength();
+//            throw new IllegalArgumentException();
+//        }
+//    }
+//
+//    private static void isDuplicateCarName(List<String> carList) {
+//        HashSet<String> names = new HashSet<>(carList);
+//        System.out.println("set size = " + names.size());
+//        System.out.println("list size = " + carList.size());
+//        System.out.println();
+//        if (names.size() != carList.size()) {
+//            ExceptionMessage.isDuplicateCarName();
+//            throw new IllegalArgumentException();
+//        }
+//    }
 
 
     public static int getTryCount() {
