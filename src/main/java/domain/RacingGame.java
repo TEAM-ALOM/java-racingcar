@@ -17,15 +17,6 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
-    public List<String> splitCarNames(String carNames) {
-        List<String> list;
-        list = Arrays.stream(carNames.split(","))
-                .map(String::trim)
-                .toList();
-        isValidCarName(list);
-        return list;
-    }
-
     public void race() {
         moveCnt = setMoveCnt(carList);
         for (int i = 0; i < tryCount; i++) {
@@ -34,17 +25,6 @@ public class RacingGame {
             ResultView.printCarMove(moveCnt);
         }
 
-    }
-
-    private void isValidCarName(List<String> carList) {
-        carList.forEach(this::isValidCarNameLength);
-    }
-
-    private void isValidCarNameLength(String carName) {
-        if (carName.length() < 1 || carName.length() > 5) {
-            ExceptionMessage.isInvalidNameLength();
-            throw new IllegalArgumentException();
-        }
     }
 
     private Map<String, Integer> setMoveCnt(List<String> carList) {
@@ -58,11 +38,11 @@ public class RacingGame {
     private void setRandomMove() {
         for (int i = 0; i < carList.size(); i++) {
             int move = Randoms.pickNumberInRange(0, 9);
-            validateMove(move, i);
+            canMove(move, i);
         }
     }
 
-    private void validateMove(int move, int i) {
+    private void canMove(int move, int i) {
         if (move >= 4) {
             moveCnt.put(carList.get(i), moveCnt.get(carList.get(i)) + 1);
         }

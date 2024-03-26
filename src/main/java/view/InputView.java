@@ -3,6 +3,7 @@ package view;
 import org.kokodak.Console;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class InputView {
@@ -18,6 +19,7 @@ public class InputView {
                 .map(String::trim)
                 .toList();
         isValidCarName(list);
+        isDuplicateCarName(list);
         return list;
     }
 
@@ -33,6 +35,18 @@ public class InputView {
             throw new IllegalArgumentException();
         }
     }
+
+    private static void isDuplicateCarName(List<String> carList) {
+        HashSet<String> names = new HashSet<>(carList);
+        System.out.println("set size = " + names.size());
+        System.out.println("list size = " + carList.size());
+        System.out.println();
+        if (names.size() != carList.size()) {
+            ExceptionMessage.isDuplicateCarName();
+            throw new IllegalArgumentException();
+        }
+    }
+
 
     public static int getTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
