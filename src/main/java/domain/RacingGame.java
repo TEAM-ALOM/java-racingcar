@@ -2,23 +2,28 @@ package domain;
 
 
 import org.kokodak.Randoms;
+import view.ExceptionMessage;
 import view.ResultView;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RacingGame {
-    private final String carNames;
     private final int tryCount;
-    String[] carList;
-    Map<String, Integer> moveCnt;
+    List<String> carList;
+    public Map<String, Integer> moveCnt;
 
-    public RacingGame(String carNames, int tryCount) {
-        this.carNames = carNames;
-        this.carList = carNames.split(",");
+    public RacingGame(List<String> carNames, int tryCount) {
+        this.carList = carNames;
         this.tryCount = tryCount;
+    }
+
+    public List<String> splitCarNames(String carNames) {
+        List<String> list;
+        list = Arrays.stream(carNames.split(","))
+                .map(String::trim)
+                .toList();
+        isValidCarName(list);
+        return list;
     }
 
     public void race() {
@@ -31,7 +36,18 @@ public class RacingGame {
 
     }
 
-    private Map<String, Integer> setMoveCnt(String[] carList) {
+    private void isValidCarName(List<String> carList) {
+        carList.forEach(this::isValidCarNameLength);
+    }
+
+    private void isValidCarNameLength(String carName) {
+        if (carName.length() < 1 || carName.length() > 5) {
+            ExceptionMessage.isInvalidNameLength();
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private Map<String, Integer> setMoveCnt(List<String> carList) {
         Map<String, Integer> moveCnt = new HashMap<>();
         for (String s : carList) {
             moveCnt.put(s, 0);
@@ -40,11 +56,15 @@ public class RacingGame {
     }
 
     private void setRandomMove() {
-        for (int i = 0; i < carList.length; i++) {
+        for (int i = 0; i < carList.size(); i++) {
             int move = Randoms.pickNumberInRange(0, 9);
-            if (move >= 4) {
-                moveCnt.put(carList[i], moveCnt.get(carList[i]) + 1);
-            }
+            validateMove(move, i);
+        }
+    }
+
+    private void validateMove(int move, int i) {
+        if (move >= 4) {
+            moveCnt.put(carList.get(i), moveCnt.get(carList.get(i)) + 1);
         }
     }
 
