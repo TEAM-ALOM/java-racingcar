@@ -11,8 +11,8 @@ public class RacingController {
     public void run(){
         try{
             final var cars = InputView.readCarNames();
-            final var tryCount = InputView.readTryCount();
             InputView.carNamesValidate(cars);
+            final var tryCount = InputView.readTryCount();
             InputView.tryCountValidate(tryCount);
 
             final var racingGame = new RacingGame(cars, tryCount);
@@ -26,7 +26,8 @@ public class RacingController {
     }
 
     private void race(RacingGame racingGame){
-        ResultView.Start(racingGame.getCars());
+        ResultView resultView = new ResultView();
+        resultView.start(racingGame.getCars());
         for(int i = 0; i < racingGame.getTryCount(); i++){
             generateRandomDistance(racingGame.getCars());
         }

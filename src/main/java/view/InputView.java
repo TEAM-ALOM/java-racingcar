@@ -3,7 +3,6 @@ package view;
 import java.util.*;
 
 public class InputView {
-
     private static Scanner scanner = new Scanner(System.in);
     public static Map<String, Integer> readCarNames(){
         Map<String, Integer> cars = new HashMap<>();
