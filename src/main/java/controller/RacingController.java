@@ -41,9 +41,12 @@ public class RacingController {
 
     private List<String> getWinners(Map<String, Integer> cars){
         List<String> winners = new ArrayList<>();
-
-
+        int maxValue = Collections.max(cars.values());
+        for(Map.Entry<String, Integer> entry : cars.entrySet()){
+            if(entry.getValue() == maxValue){
+                winners.add(entry.getKey());
+            }
+        }
         return winners;
     }
-
 }

@@ -3,12 +3,13 @@ package view;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class ResultView {
     public static void printWinners(List<String> winners){
         int i;
         for(i = 0; i < winners.size() - 1; i++){
-            System.out.print(winners.get(i) + ", ");
+            System.out.print(winners.get(i)+ ", ");
         }
         System.out.print(winners.get(i) + "가 최종 우승했습니다.");
     }
