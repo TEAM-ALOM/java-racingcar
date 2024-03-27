@@ -31,7 +31,6 @@ public class RacingController {
             generateRandomDistance(racingGame.getCars());
         }
     }
-
     private void generateRandomDistance(Map<String, Integer> cars){
         for(Map.Entry<String, Integer> entry : cars.entrySet()){
             Random random = new Random();

@@ -14,9 +14,8 @@ public class ResultView {
     }
 
     public static void printRaceStep(Map<String, Integer> cars){
-        Iterator<String> iterator = cars.keySet().iterator();
-        while(iterator.hasNext()){
-            String name = iterator.next();
+        for(Map.Entry<String, Integer> entry : cars.entrySet()){
+            String name = entry.getKey();
             String distance = "-".repeat(cars.get(name));
             System.out.println(name + " : " + distance);
         }
