@@ -14,6 +14,7 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
+    //자동차 distance 업데이트 메소드
     public static void updateDistance(String carName, int random){
         if(random >= 4) {
             int distance = cars.get(carName) + 1;

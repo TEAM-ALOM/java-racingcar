@@ -4,6 +4,8 @@ import java.util.*;
 
 public class InputView {
     private static Scanner scanner = new Scanner(System.in);
+
+    //차이름 입력 메소드
     public static Map<String, Integer> readCarNames(){
         try{
             Map<String, Integer> cars = new HashMap<>();
@@ -20,6 +22,7 @@ public class InputView {
         }
     }
 
+    //시도횟수 입력 메소드
     public static int readTryCount(){
         System.out.println("시도할 횟수는 몇회인가요?");
         int count = scanner.nextInt();
@@ -27,10 +30,13 @@ public class InputView {
         return count;
     }
 
+    //시도횟수 유효성 검사 메소드
     public static void tryCountValidate(int count){
         if(count <= 0)
             throw new IllegalArgumentException("[ERROR]시도 횟수는 양수입니다.");
     }
+
+    //차이름 유효성 검사 메소드
     public static void carNamesValidate(Map<String, Integer> cars){
         Iterator<String> keys = cars.keySet().iterator();
         while(keys.hasNext()){
