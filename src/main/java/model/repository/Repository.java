@@ -1,4 +1,4 @@
-package model;
+package model.repository;
 
-public class repository {
+public class Repository {
 }
