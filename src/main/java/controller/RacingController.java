@@ -11,9 +11,7 @@ public class RacingController {
     public void run(){
         try{
             final var cars = InputView.readCarNames();  //차이름 입력받기
-            InputView.carNamesValidate(cars);   //차 이름이 유효성 확인
             final var tryCount = InputView.readTryCount();  //시도 횟수 입력받기
-            InputView.tryCountValidate(tryCount);   //횟수 유효성 확인
 
             final var racingGame = new RacingGame(cars, tryCount);
             race(racingGame);   //경주 실행

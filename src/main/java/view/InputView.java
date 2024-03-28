@@ -30,25 +30,4 @@ public class InputView {
         return count;
     }
 
-    //시도횟수 유효성 검사 메소드
-    public static void tryCountValidate(int count){
-        if(count <= 0)
-            throw new IllegalArgumentException("[ERROR]시도 횟수는 양수입니다.");
-    }
-
-    //차이름 유효성 검사 메소드
-    public static void carNamesValidate(Map<String, Integer> cars){
-        Iterator<String> keys = cars.keySet().iterator();
-        while(keys.hasNext()){
-            String key = keys.next();
-            lengthValidate(key);
-        }
-
-    }
-
-    private static void lengthValidate(String name){
-        if(name.length() > 5)
-            throw new IllegalArgumentException("[ERROR]차 이름은 5자 이하여야합 니다.");
-    }
-
 }

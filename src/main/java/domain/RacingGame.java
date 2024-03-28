@@ -10,6 +10,8 @@ public class RacingGame {
 
     }
     public RacingGame(Map<String, Integer> cars, int tryCount){
+        carNamesValidate(cars);
+        tryCountValidate(tryCount);
         this.cars = cars;
         this.tryCount = tryCount;
     }
@@ -29,4 +31,26 @@ public class RacingGame {
     public int getTryCount() {
         return tryCount;
     }
+
+    public static void tryCountValidate(int count){
+        if(count <= 0)
+            throw new IllegalArgumentException("[ERROR]시도 횟수는 양수입니다.");
+    }
+
+    //차이름 유효성 검사 메소드
+    public static void carNamesValidate(Map<String, Integer> cars){
+        Iterator<String> keys = cars.keySet().iterator();
+        while(keys.hasNext()){
+            String key = keys.next();
+            lengthValidate(key);
+        }
+
+    }
+
+    //차 길이 유효성 검사 메소드
+    private static void lengthValidate(String name){
+        if(name.length() > 5)
+            throw new IllegalArgumentException("[ERROR]차 이름은 5자 이하여야합 니다.");
+    }
+
 }
