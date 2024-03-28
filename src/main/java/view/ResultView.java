@@ -14,7 +14,7 @@ public class ResultView {
         System.out.print(winners.get(i) + "가 최종 우승했습니다.");
     }
 
-    private void printRaceStep(Map<String, Integer> cars){
+    public void printRaceStep(Map<String, Integer> cars){
         for(Map.Entry<String, Integer> entry : cars.entrySet()){
             String name = entry.getKey();
             String distance = "-".repeat(cars.get(name));
