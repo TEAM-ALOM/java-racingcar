@@ -31,6 +31,7 @@ public class RacingController {
         for(int i = 0; i < racingGame.getTryCount(); i++){
             generateRandomDistance(racingGame.getCars());
             resultView.printRaceStep(racingGame.getCars());
+            System.out.println();
         }
     }
     private void generateRandomDistance(Map<String, Integer> cars){

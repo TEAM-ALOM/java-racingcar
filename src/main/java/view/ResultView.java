@@ -25,6 +25,7 @@ public class ResultView {
     public void start(Map<String, Integer> cars){
         System.out.println("실행 결과");
         printRaceStep(cars);
+        System.out.println();
     }
 }
 
